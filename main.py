@@ -39,12 +39,13 @@ class Wpp:
         self.std_nome = std_nome
         self.driver.find_element(By.XPATH, self.ctt_field).clear()
         self.driver.find_element(By.XPATH, self.ctt_field).send_keys(self.std_nome)
-        time.sleep(2)     
+        time.sleep(5)     
     
     def check_ctt_name(self, std_nome):
         self.std_nome = std_nome
         self.match = self.driver.find_element_by_class_name(self.match_text)
         self.match_txt_upper = self.match.text
+        time.sleep(1)
 
         if (self.std_nome.upper() == self.match_txt_upper.upper()):
             self.enter_key_ctt()
@@ -56,16 +57,18 @@ class Wpp:
     def write_message(self, msg):
         self.msg = msg
         self.driver.find_element(By.XPATH, self.input_msg).send_keys(self.msg)
+
         self.enter_key_message()
+
         
         
     def enter_key_ctt(self):
         self.driver.find_element(By.XPATH, self.ctt_field).send_keys(Keys.ENTER)
-    
+        time.sleep(1)
 
     def enter_key_message(self):
         self.driver.find_element(By.XPATH, self.input_msg).send_keys(Keys.ENTER)
-            
+        time.sleep(1)   
 ff = webdriver.Firefox()
 wpp = Wpp(ff)
 wpp.navigate()

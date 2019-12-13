@@ -1,3 +1,13 @@
+'''import re
+
+nome = input('Qual o seu nome completo? ')
+
+if re.search('\\benzo\\b', nome, re.IGNORECASE):
+    print("A string tem o nome Enzo")
+else:
+    print("A string não tem o nome Enzo")'''
+
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -24,7 +34,7 @@ print(msg)
 time.sleep(3)
 os.system('cls')
 
-mensagem = 'somos todos instrutores da Evolute Profissionalizantes e Idiomas. Estamos entrando em contato com você devido sua ausência. Para marcar reposição, envia para este número o HORÁRIO e DIA desejado. Obrigado! Att, Evolute.'
+mensagem = msg
 class Wpp:
     def __init__(self, driver):
         self.driver = driver

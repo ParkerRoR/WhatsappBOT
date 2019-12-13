@@ -4,7 +4,7 @@ Requirements:
   Python 3.8
   Selenium
  
- How to install Python 3.8:
+ 1 - How to install Python 3.8:
   for Windows: https://www.python.org/downloads/windows/
   for Mac-OSX: https://www.python.org/downloads/mac-osx/
   for Linux: https://www.python.org/downloads/source/
@@ -12,7 +12,7 @@ Requirements:
   1º - Download installer
   2º - Install
   
- How to install Selenium:
+ 2 - How to install Selenium:
   Requirements:
     Python
     
@@ -20,7 +20,7 @@ Requirements:
   2º - Type pip install selenium
   
 Arquivos.txt
-  alunos.txt:
+  wpp_alunos.txt:
     contacts ordered names by rows
-  msg.txt:
+  wpp_msg.txt:
     message file, type ur message

@@ -24,3 +24,5 @@ Arquivos.txt
     contacts ordered names by rows
   wpp_msg.txt:
     message file, type ur message
+  wpp_blacklist.txt:
+    write here the names of the contacts to NEVER send a message

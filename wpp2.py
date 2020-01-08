@@ -14,6 +14,7 @@ from selenium.webdriver.common.by import By
 import time
 import os
 nome_contato = []
+blacklist = []
 msg = ''
 
 with open("wpp_msg.txt", "r") as j:
@@ -21,6 +22,9 @@ with open("wpp_msg.txt", "r") as j:
 
 with open("wpp_alunos.txt", "r") as f:
     nome_contato = f.readlines() # readlines() returns a list of items, each item is a line in your file
+
+with open("wpp_blacklist.txt", "r") as b:
+    blacklist = b.readlines()
 
 
 
@@ -77,13 +81,23 @@ def start():
     wpp.navigate()
     os.system('pause')
     for i in range(len(nome_contato)):
-        try:
-            
-                wpp.set_search_ctt(nome_contato[i])
-                wpp.click_ctt()
-                wpp.set_msg('Boa tarde {}, {}'.format(nome_contato[i].lower().capitalize(), mensagem))
+        try:            
 
-                wpp.click_send_msg()
+                
+                for z in range(len(blacklist)):
+                    if (nome_contato[i].lower() == blacklist[z].lower()):
+                        blacklist_true = True
+                        print('O contato: {} está na blacklist'.format(blacklist[z].capitalize()))
+                    else:
+                        blacklist_true = False
+
+                if (blacklist_true == True):
+                    blacklist_true = False
+                else:
+                    wpp.set_search_ctt(nome_contato[i])
+                    wpp.click_ctt()
+                    wpp.set_msg('Boa tarde {}, {}'.format(nome_contato[i].lower().capitalize(), mensagem))
+                    wpp.click_send_msg()
         except:
             print('O contato {} NÃO foi encontrado, por favor cadastre-o!'.format(nome_contato[i]))
 start()

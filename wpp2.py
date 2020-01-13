@@ -26,6 +26,12 @@ with open("wpp_alunos.txt", "r") as f:
 with open("wpp_blacklist.txt", "r") as b:
     blacklist = b.readlines()
 
+msg2 = ''
+for n in range(len(msg)):
+    msg2 = msg2 + msg[n]
+
+
+
 
 
 tam = len(nome_contato)
@@ -34,11 +40,11 @@ for i in range(tam):
 os.system('cls')
 print('A mensagem a ser enviada será:')
 print('')
-print(msg)
+print(msg2)
 time.sleep(3)
 os.system('cls')
 
-mensagem = msg
+mensagem = msg2
 class Wpp:
     def __init__(self, driver):
         self.driver = driver
@@ -75,6 +81,8 @@ class Wpp:
             print('{} não foi encontrado'.format(self.nome_contato))
         else:
             self.contato.click()
+
+
 def start():
     ff = webdriver.Firefox()
     wpp = Wpp(ff)
@@ -98,6 +106,7 @@ def start():
                     wpp.click_ctt()
                     wpp.set_msg('Boa tarde {}, {}'.format(nome_contato[i].lower().capitalize(), mensagem))
                     wpp.click_send_msg()
+                    time.sleep(3)
         except:
             print('O contato {} NÃO foi encontrado, por favor cadastre-o!'.format(nome_contato[i]))
 start()
